@@ -11,6 +11,7 @@
 	Photoresistor
   
 ## Circuit Diagram:
+<img width="996" height="637" alt="image" src="https://github.com/user-attachments/assets/f8135bab-3c15-4944-b127-951ad27754a5" />
 
 
 ## Theory :
@@ -66,10 +67,36 @@ o	The middle point (between LDR and resistor) connects to the Arduino analog inp
 
 ## Code:
 
-
+```
+const int LEDPin=13;
+const int LDRPin=A0;
+void setup()
+{
+ Serial.begin(9600);
+ pinMode(LEDPin,OUTPUT);
+ pinMode(LDRPin,INPUT);
+}
+void loop()
+{
+ int LDRStatus=analogRead(LDRPin);
+ if(LDRStatus<=500)
+ {
+ digitalWrite(LEDPin,HIGH);
+ Serial.print("Current Light Intensity Value is -");
+ Serial.println(LDRStatus);
+ }
+ else
+ {
+ digitalWrite(LEDPin, LOW);
+ Serial.print("Current Light Intensity Value is -");
+ Serial.println(LDRStatus);
+ }
+}
+```
 
 ## Output:
  
+<img width="946" height="668" alt="image" src="https://github.com/user-attachments/assets/df2a2869-c2db-414d-8fc2-e8351e5b394a" />
 
 
 ## Result:
